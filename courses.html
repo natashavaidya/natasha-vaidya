@@ -60,6 +60,25 @@
   .reveal { opacity: 0; transition: opacity 0.7s ease; }
   .reveal.is-in { opacity: 1; }
   @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1 !important; transition: none; } }
+
+  /* mobile: native horizontal swipe scrolling for every carousel */
+  @media (max-width: 640px) {
+    .stage {
+      overflow-x: auto; overflow-y: hidden;
+      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: x mandatory;
+      scroll-padding-left: var(--peek-l);
+      scrollbar-width: none;
+    }
+    .stage::-webkit-scrollbar { display: none; }
+    .track {
+      transform: none !important;
+      padding-left: var(--peek-l);
+      padding-right: var(--peek-r);
+    }
+    .card { scroll-snap-align: start; }
+    .nav { display: none !important; }
+  }
 </style>
 </head>
 <body>
